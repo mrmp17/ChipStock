@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ChipStock_recyclerViewTest</string>
+
+    <string-array name="cmp_names">
+        <item>LM324</item>
+        <item>LM741</item>
+        <item>NE555</item>
+        <item>LS532</item>
+    </string-array>
+
+    <string-array name="cmp_description">
+        <item>generic opamp</item>
+        <item>old af opamp</item>
+        <item>og timer ic</item>
+        <item>wtf is this shit</item>
+    </string-array>
+</resources>
