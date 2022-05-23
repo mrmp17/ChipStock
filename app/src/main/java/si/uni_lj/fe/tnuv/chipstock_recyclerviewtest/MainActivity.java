@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     static RecyclerAdapter myAdapter;
     Gson gson = new Gson();
 
+
+
     public static void restoreItem(int idx){
         //get component to be restored
         ComponentClass delComp = MainActivity.cListDeleted.get(idx);

@@ -7,25 +7,14 @@
     tools:context=".BackupActivity">
 
     <Button
-        android:id="@+id/btnExport_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="Export .json file"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <Button
         android:id="@+id/btnImport_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Import .json file"
+        android:layout_marginBottom="16dp"
+        android:text="Import JSON"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExport_id" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
@@ -34,11 +23,25 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
-        android:text="Here, you can export your stock list as a human-readable .json file. To restore your stock list, you can import a previously exported .json. This will overwrite your current stock list."
+        android:text="Here, you can export your stock list as a human-readable JSON text. To backup, copy the text below and save it. To restore, paste the text from your backup and click import JSON. Warning: this does not include deleted items."
         android:textAlignment="center"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/jsonField_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/btnImport_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 </androidx.constraintlayout.widget.ConstraintLayout>
