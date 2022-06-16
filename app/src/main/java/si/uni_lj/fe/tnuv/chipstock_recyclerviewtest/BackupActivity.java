@@ -24,6 +24,7 @@ public class BackupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backup);
 
+        //write out json to text field
         TextView jsonField = findViewById(R.id.jsonField_id);
         SharedPreferences sp = ctx.getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         if(sp.contains("cList") && sp.contains("cListDeleted")){
@@ -31,6 +32,8 @@ public class BackupActivity extends AppCompatActivity {
             jsonField.setText(cListJson);
         }
 
+
+        //import json from text field (used as restore)
         Button importBtn = findViewById(R.id.btnImport_id);
         importBtn.setOnClickListener(new View.OnClickListener() {
             @Override

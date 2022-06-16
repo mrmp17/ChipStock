@@ -22,21 +22,23 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
-//koraki za usposobit recycler view
 
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Context ctx = this;
+    //init component list arrays
     static ArrayList<ComponentClass> cList = new ArrayList<ComponentClass>(); //main component data storage arrayList
     static ArrayList<ComponentClass> cListDeleted = new ArrayList<ComponentClass>(); //deleted component data storage arrayList
     static int displayDeletedFlag = 0; //has value of 1 when deleted items are shown
     static RecyclerAdapter myAdapter;
+    //GSON instance
     Gson gson = new Gson();
 
 
 
+    //restores item from trash to main
     public static void restoreItem(int idx){
         //get component to be restored
         ComponentClass delComp = MainActivity.cListDeleted.get(idx);
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         myAdapter.notifyDataSetChanged();
     }
 
+    //saves json to shared preferences (list save when app is closed)
     public static void saveToJson(Context ctx){
         //write json and save to sharedperfs
         Gson gson = new Gson();
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        //refresh list (data may have changed)
         myAdapter.notifyDataSetChanged();
     }
 
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //here, load up cList and cListDeleted from json
+        //here, load up cList and cListDeleted from json (from shared prefs)
         SharedPreferences sp = ctx.getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         if(sp.contains("cList") && sp.contains("cListDeleted")){
             String cListJson = sp.getString("cList", "");
@@ -98,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //Intent intent = new Intent(this, componentEditActivity.class);
-        //startActivity(intent);
 
         //on click listener for add component FAB
         FloatingActionButton fab = findViewById(R.id.addFab_id);

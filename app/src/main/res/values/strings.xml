@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChipStock_recyclerViewTest</string>
+    <string name="app_name">ChipStock</string>
 
     <string-array name="cmp_names">
         <item>LM324</item>

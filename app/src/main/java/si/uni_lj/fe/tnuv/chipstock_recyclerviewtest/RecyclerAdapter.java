@@ -38,6 +38,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //Log.d("ADBG", String.valueOf(position));
 
+        //get data fields from component in array
         ComponentClass comp = compList.get(position); //get one component object
         int id = comp.id;
         String name = comp.name;
@@ -48,6 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         String notes = comp.notes;
         int instock = comp.inStock;
 
+        //set textviews
         holder.nametxt.setText(name);
         holder.desctxt.setText(description);
         holder.partnum.setText(partnum);
@@ -55,6 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         //holder.myImg.setImageResource(R.drawable.img);
 
+        //click listener when scrolview row is clicked
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +95,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         ConstraintLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
+            //get element ids
             super(itemView);
             nametxt = itemView.findViewById(R.id.name_txt);
             desctxt = itemView.findViewById(R.id.desc_txt);

@@ -1,5 +1,5 @@
 package si.uni_lj.fe.tnuv.chipstock_recyclerviewtest;
-
+//class for one component (this is then an element of array)
 public class ComponentClass {
     public int id;
     public String name;

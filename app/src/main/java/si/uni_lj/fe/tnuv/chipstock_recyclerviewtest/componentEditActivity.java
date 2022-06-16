@@ -54,12 +54,13 @@ public class componentEditActivity extends AppCompatActivity {
 
 
         //nmtxt.setText("helo");
+        //get index of component that we should be editing (saved in intent extra at activity swap)
         int index;
         index = getIntent().getIntExtra("idx", 0);
         int newCompFlag;
         newCompFlag = getIntent().getIntExtra("new", 0);
 
-        int deletedFlag = getIntent().getIntExtra("deletedList", 0);
+        //int deletedFlag = getIntent().getIntExtra("deletedList", 0);
 
 //        if(deletedFlag == 1){
 //            deletebutton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_restore_24, 0, 0 ,0);
@@ -68,13 +69,14 @@ public class componentEditActivity extends AppCompatActivity {
 //            deletebutton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_delete_24, 0, 0 ,0);
 //        }
 
+        //new component, add blank element to array
         if (newCompFlag == 1){
             ComponentClass newComp = new ComponentClass();
             MainActivity.cList.add(newComp);
 
         }
         else{
-            //get component at selected index
+            //get component at selected index (load textviews)
             ComponentClass selComp = MainActivity.cList.get(index);
 
             nmtxt.setText(selComp.name);
@@ -86,6 +88,8 @@ public class componentEditActivity extends AppCompatActivity {
             stocknumtxt.setText(String.valueOf(selComp.inStock));
         }
 
+
+        // ### onClick listeners for buttons
 
         decbtn.setOnClickListener(new View.OnClickListener() {
             @Override
