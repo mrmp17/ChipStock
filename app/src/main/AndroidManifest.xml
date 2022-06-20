@@ -12,13 +12,8 @@
         <activity
             android:name=".DeletedActivity"
             android:label="Deleted components"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".BackupActivity"
-            android:exported="false"
-            android:label="Backup"
-            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SettingActivity"
             android:exported="false"
@@ -31,12 +26,17 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
         </activity>
     </application>
 
