@@ -29,7 +29,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-
+import java.util.regex.Pattern;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //init component list arrays
     static ArrayList<ComponentClass> cList = new ArrayList<ComponentClass>(); //main component data storage arrayList
     static ArrayList<ComponentClass> cListDeleted = new ArrayList<ComponentClass>(); //deleted component data storage arrayList
+    static ArrayList<ComponentClass> cListSearch = new ArrayList<ComponentClass>();
     static int displayDeletedFlag = 0; //has value of 1 when deleted items are shown
     static RecyclerAdapter myAdapter;
     //GSON instance
@@ -164,6 +165,31 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                cListSearch.clear();
+                for (int n = 0; n < cList.size()-1; n++) {
+                    ComponentClass cmp = cList.get(n);
+                    if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.name).find()){
+                        cListSearch.add(cmp);
+                    }
+                    else if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.description).find()){
+                        cListSearch.add(cmp);
+                    }
+                    else if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.partNumber).find()){
+                        cListSearch.add(cmp);
+                    }
+                    else if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.orderNumber).find()){
+                        cListSearch.add(cmp);
+                    }
+                    else if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.stockLocation).find()){
+                        cListSearch.add(cmp);
+                    }
+                    else if(Pattern.compile(Pattern.quote(newText), Pattern.CASE_INSENSITIVE).matcher(cmp.notes).find()){
+                        cListSearch.add(cmp);
+                    }
+                }
+                myAdapter = new RecyclerAdapter(ctx, cListSearch);
+                recyclerView.setAdapter(myAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
                 return false;
             }
         });
