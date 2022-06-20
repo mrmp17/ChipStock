@@ -123,29 +123,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //on click listener for settings button
-//        ImageButton settingsButton = findViewById(R.id.btnSettings_id);
-//        settingsButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ctx, SettingActivity.class);
-//                ctx.startActivity(intent);
-//            }
-//        });
-
-
-
-
-
-//        //on click listener for backup button
-//        ImageButton backupButton = findViewById(R.id.btnBackup_id);
-//        backupButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ctx, BackupActivity.class);
-//                ctx.startActivity(intent);
-//            }
-//        });
 
         //on checked change listener for trash button
 //        ToggleButton trashButton = findViewById(R.id.btnTrash_id);
