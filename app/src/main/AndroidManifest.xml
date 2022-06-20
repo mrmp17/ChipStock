@@ -11,10 +11,14 @@
         android:theme="@style/Theme.ChipStock_recyclerViewTest">
         <activity
             android:name=".BackupActivity"
-            android:exported="false" />
+            android:label="Backup"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".SettingActivity"
-            android:exported="false" />
+            android:label="Settings"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".componentEditActivity"
             android:exported="false"

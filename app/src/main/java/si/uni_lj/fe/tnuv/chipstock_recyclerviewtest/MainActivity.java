@@ -145,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
                 if(isChecked){
                     fab.hide();
                     displayDeletedFlag = 1;
-                    TextView listname = findViewById(R.id.listText_id);
-                    listname.setText("Deleted items. Tap item to restore.");
+                    //TextView listname = findViewById(R.id.listText_id);
+                    //listname.setText("Deleted items. Tap item to restore.");
                     myAdapter = new RecyclerAdapter(ctx, cListDeleted);
                     recyclerView.setAdapter(myAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
@@ -155,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     fab.show();
                     displayDeletedFlag = 0;
-                    TextView listname = findViewById(R.id.listText_id);
-                    listname.setText("Main stock list");
+                    //TextView listname = findViewById(R.id.listText_id);
+                    //listname.setText("Main stock list");
                     myAdapter = new RecyclerAdapter(ctx, cList);
                     recyclerView.setAdapter(myAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
