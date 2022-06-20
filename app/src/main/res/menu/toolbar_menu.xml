@@ -17,7 +17,7 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_trash"
+        android:id="@+id/action_deleted"
         android:icon="@drawable/ic_baseline_delete_outline_36"
         android:title="Deleted components"
         app:showAsAction="never"/>

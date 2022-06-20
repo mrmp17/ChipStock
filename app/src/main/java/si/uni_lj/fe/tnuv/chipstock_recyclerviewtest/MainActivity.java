@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -123,51 +124,55 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //on click listener for settings button
-        ImageButton settingsButton = findViewById(R.id.btnSettings_id);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ctx, SettingActivity.class);
-                ctx.startActivity(intent);
-            }
-        });
+//        ImageButton settingsButton = findViewById(R.id.btnSettings_id);
+//        settingsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ctx, SettingActivity.class);
+//                ctx.startActivity(intent);
+//            }
+//        });
 
-        //on click listener for backup button
-        ImageButton backupButton = findViewById(R.id.btnBackup_id);
-        backupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ctx, BackupActivity.class);
-                ctx.startActivity(intent);
-            }
-        });
+
+
+
+
+//        //on click listener for backup button
+//        ImageButton backupButton = findViewById(R.id.btnBackup_id);
+//        backupButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ctx, BackupActivity.class);
+//                ctx.startActivity(intent);
+//            }
+//        });
 
         //on checked change listener for trash button
-        ToggleButton trashButton = findViewById(R.id.btnTrash_id);
-        trashButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    fab.hide();
-                    displayDeletedFlag = 1;
-                    //TextView listname = findViewById(R.id.listText_id);
-                    //listname.setText("Deleted items. Tap item to restore.");
-                    myAdapter = new RecyclerAdapter(ctx, cListDeleted);
-                    recyclerView.setAdapter(myAdapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
-
-                }
-                else{
-                    fab.show();
-                    displayDeletedFlag = 0;
-                    //TextView listname = findViewById(R.id.listText_id);
-                    //listname.setText("Main stock list");
-                    myAdapter = new RecyclerAdapter(ctx, cList);
-                    recyclerView.setAdapter(myAdapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
-                }
-            }
-        });
+//        ToggleButton trashButton = findViewById(R.id.btnTrash_id);
+//        trashButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+//                if(isChecked){
+//                    fab.hide();
+//                    displayDeletedFlag = 1;
+//                    //TextView listname = findViewById(R.id.listText_id);
+//                    //listname.setText("Deleted items. Tap item to restore.");
+//                    myAdapter = new RecyclerAdapter(ctx, cListDeleted);
+//                    recyclerView.setAdapter(myAdapter);
+//                    recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
+//
+//                }
+//                else{
+//                    fab.show();
+//                    displayDeletedFlag = 0;
+//                    //TextView listname = findViewById(R.id.listText_id);
+//                    //listname.setText("Main stock list");
+//                    myAdapter = new RecyclerAdapter(ctx, cList);
+//                    recyclerView.setAdapter(myAdapter);
+//                    recyclerView.setLayoutManager(new LinearLayoutManager(ctx));
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -175,6 +180,34 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
+    }
+
+    //Handling Action Bar button click
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Handle item selection
+        Intent intent;
+        switch (item.getItemId()) {
+            //Back button
+//            case android.R.id.home:
+//                //If this activity started from other activity
+//                finish();
+//                return true;
+
+            case R.id.action_settings:
+                intent = new Intent(ctx, SettingActivity.class);
+                ctx.startActivity(intent);
+                return true;
+
+            case R.id.action_deleted:
+                //intent = new Intent(ctx, SettingActivity.class);
+                //ctx.startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
