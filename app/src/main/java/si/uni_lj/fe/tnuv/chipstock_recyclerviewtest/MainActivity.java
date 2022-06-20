@@ -41,17 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //restores item from trash to main
-    public static void restoreItem(int idx){
-        //get component to be restored
-        ComponentClass delComp = MainActivity.cListDeleted.get(idx);
-        //write it to normal list
-        MainActivity.cList.add(delComp);
-        //remove it from main list
-        MainActivity.cListDeleted.remove(idx);
-        //myAdapter.notifyItemRemoved(idx);
-        myAdapter.notifyDataSetChanged();
-    }
+
 
     //saves json to shared preferences (list save when app is closed)
     public static void saveToJson(Context ctx){
@@ -178,8 +168,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_deleted:
-                //intent = new Intent(ctx, SettingActivity.class);
-                //ctx.startActivity(intent);
+                displayDeletedFlag = 1;
+                intent = new Intent(ctx, DeletedActivity.class);
+                ctx.startActivity(intent);
                 return true;
 
             default:

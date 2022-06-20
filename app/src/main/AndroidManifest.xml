@@ -10,15 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChipStock_recyclerViewTest">
         <activity
+            android:name=".DeletedActivity"
+            android:label="Deleted components"
+            android:parentActivityName=".MainActivity" />
+            android:exported="false" />
+        <activity
             android:name=".BackupActivity"
-            android:label="Backup"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:label="Backup"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SettingActivity"
-            android:label="Settings"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:label="Settings"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".componentEditActivity"
             android:exported="false"

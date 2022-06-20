@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -62,7 +63,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             @Override
             public void onClick(View view) {
                 if(MainActivity.displayDeletedFlag == 1){
-                    MainActivity.restoreItem(holder.getAdapterPosition());
+                    DeletedActivity.restoreItem(holder.getAdapterPosition());
+                    Toast.makeText(DeletedActivity.myAdapter.context, "Restored", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Intent intent = new Intent(context, componentEditActivity.class);
