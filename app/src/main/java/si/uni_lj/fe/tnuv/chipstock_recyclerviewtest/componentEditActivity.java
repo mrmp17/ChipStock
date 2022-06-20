@@ -1,6 +1,7 @@
 package si.uni_lj.fe.tnuv.chipstock_recyclerviewtest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,11 @@ public class componentEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_component_edit);
+
+        Toolbar myToolbar = findViewById(R.id.editToolbar_id);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Context ctx = this;
 
